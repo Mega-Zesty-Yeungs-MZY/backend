@@ -33,7 +33,7 @@ class LeaderboardsAPI:
 
     class _Read(Resource):
         def get(self):
-            entrys = Leaderboards.query.all()  
+            entries = Leaderboards.query.all()  
             json_ready = [entry.read() for entry in entries]  
             return jsonify(json_ready)  
 
