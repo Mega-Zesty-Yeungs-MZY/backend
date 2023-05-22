@@ -81,7 +81,7 @@ def initLeaderboards():
         u2 = Leaderboards( time='100000001 sec', name='Steven' )
         u3 = Leaderboards( time='100000002 sec', name='Noor' )
         u4 = Leaderboards( time='100000003 sec', name='Lucas' )
-        u5 = Leaderboards( time='100000004 sec', name='Yeung' )
+        u5 = Leaderboards( time='100000004', name='Yeung' )
 
         entries = [u1, u2, u3, u4, u5]
 
