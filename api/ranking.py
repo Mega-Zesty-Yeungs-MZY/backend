@@ -5,7 +5,7 @@ from datetime import datetime
 from model.rankings import Charges
 
 charge_api = Blueprint('charge_api', __name__,
-                   url_prefix='/api/rankings')
+                   url_prefix='/api/tests')
 
 
 api = Api(charge_api)

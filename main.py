@@ -10,6 +10,7 @@ from model.users import initUsers
 from model.players import initPlayers
 from model.leaderboards import initLeaderboards
 from model.rankings import initCharges
+from model.tests import initRankings
 
 # setup APIs
 from api.covid import covid_api # Blueprint import api definition
@@ -18,7 +19,7 @@ from api.user import user_api # Blueprint import api definition
 from api.player import player_api
 from api.leaderboard import leaderboard_api
 from api.ranking import charge_api
-
+from api.test import ranking_api
 
 # setup App pages
 from projects.projects import app_projects # Blueprint directory import projects definition
@@ -34,6 +35,7 @@ app.register_blueprint(user_api) # register api routes
 app.register_blueprint(player_api)
 app.register_blueprint(leaderboard_api)
 app.register_blueprint(charge_api)
+app.register_blueprint(ranking_api)
 app.register_blueprint(app_projects) # register app pages
 
 @app.errorhandler(404)  # catch for URL not found
@@ -56,6 +58,7 @@ def activate_job():  # activate these items
     initPlayers()
     initLeaderboards()
     initCharges()
+    initRankings()
 
 # this runs the application on the development server
 if __name__ == "__main__":
