@@ -12,7 +12,7 @@ class Leaderboards(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     _name = db.Column(db.String(255), unique=True, nullable=False)
-    _time = db.Column(db.String(255), unique=True, nullable=False)
+    _time = db.Column(db.Integer, nullable=False)
     def __init__(self, name, time):
         self._time = time   
         self._name = name
@@ -59,10 +59,10 @@ class Leaderboards(db.Model):
 
 # UPDATE
 
-    def update(self, time="", name=""):
+    def update(self, time=-1, name=""):
         if len(time) > 0:
             self.time = time
-        if len(name) > 0:
+        if not time < 0:
             self.name = name
         db.session.commit()
         return self
@@ -77,11 +77,11 @@ class Leaderboards(db.Model):
 def initLeaderboards():
     with app.app_context():
         db.create_all()
-        u1 = Leaderboards( time='100000000 sec', name='Dillon' )
-        u2 = Leaderboards( time='100000001 sec', name='Steven' )
-        u3 = Leaderboards( time='100000002 sec', name='Noor' )
-        u4 = Leaderboards( time='100000003 sec', name='Lucas' )
-        u5 = Leaderboards( time='100000004', name='Yeung' )
+        u1 = Leaderboards( time=100000000, name='Dillon' )
+        u2 = Leaderboards( time=100000001, name='Steven' )
+        u3 = Leaderboards( time=100000002, name='Noor' )
+        u4 = Leaderboards( time=100000003, name='Lucas' )
+        u5 = Leaderboards( time=100000004, name='Yeung' )
 
         entries = [u1, u2, u3, u4, u5]
 
